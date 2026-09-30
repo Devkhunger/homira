@@ -28,7 +28,7 @@ export default function InlineForm({
     }
   }, [state, resetOnSuccess, router]);
   return (
-    <form ref={ref} onSubmit={onSubmit} className={className}>
+    <form ref={ref} method="post" onSubmit={onSubmit} className={className}>
       {children}
       <div className="flex items-center gap-3 sm:col-span-full">
         <button disabled={pending} className="btn-primary py-2">{pending ? "Saving…" : submitLabel}</button>

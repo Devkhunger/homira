@@ -19,7 +19,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
     <div className="container-x max-w-md py-16">
       <h1 className="mb-2 text-center text-4xl">Sign in</h1>
       <p className="mb-8 text-center text-sm text-neutral-600">Access your orders, wishlist and saved addresses.</p>
-      <LoginForm next={next} googleEnabled={Boolean(process.env.GOOGLE_CLIENT_ID)} initialError={sp.error ? ERRORS[sp.error] : undefined} />
+      <LoginForm next={next} googleEnabled={Boolean(process.env.GOOGLE_CLIENT_ID)} otpEnabled={Boolean(process.env.MSG91_AUTH_KEY) || process.env.NODE_ENV !== "production"} initialError={sp.error ? ERRORS[sp.error] : undefined} />
     </div>
   );
 }

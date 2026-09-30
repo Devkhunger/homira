@@ -45,7 +45,7 @@ export default function AddressForm({
   );
 
   return (
-    <form onSubmit={submit} className="grid gap-4 sm:grid-cols-2">
+    <form method="post" onSubmit={submit} className="grid gap-4 sm:grid-cols-2">
       {initial?.id && <input type="hidden" name="id" value={initial.id} />}
       {field("name", "Full name", { autoComplete: "name", required: true })}
       {field("phone", "Mobile number", { autoComplete: "tel", inputMode: "tel", required: true })}

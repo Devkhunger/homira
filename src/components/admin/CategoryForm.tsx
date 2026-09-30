@@ -11,7 +11,7 @@ type C = {
 export default function CategoryForm({ category, parents }: { category?: C; parents: { id: string; name: string }[] }) {
   const [state, onSubmit, pending] = useFormAction<FormState>(saveCategory, {});
   return (
-    <form onSubmit={onSubmit} className="grid max-w-4xl gap-6 lg:grid-cols-2">
+    <form method="post" onSubmit={onSubmit} className="grid max-w-4xl gap-6 lg:grid-cols-2">
       {category && <input type="hidden" name="id" value={category.id} />}
       <section className="card space-y-4">
         <h2 className="font-sans font-semibold">Category</h2>

@@ -19,7 +19,7 @@ function GoogleButton({ next, enabled }: { next: string; enabled: boolean }) {
   );
 }
 
-export function LoginForm({ next, googleEnabled, initialError }: { next: string; googleEnabled: boolean; initialError?: string }) {
+export function LoginForm({ next, googleEnabled, otpEnabled, initialError }: { next: string; googleEnabled: boolean; otpEnabled: boolean; initialError?: string }) {
   const [tab, setTab] = useState<"email" | "phone">("email");
   const [emailState, emailAction, emailPending] = useFormAction<AuthState>(loginWithEmail, { error: initialError });
   const [otpState, otpAction, otpPending] = useFormAction<AuthState>(requestOtp, {});
@@ -29,16 +29,16 @@ export function LoginForm({ next, googleEnabled, initialError }: { next: string;
   return (
     <div>
       <GoogleButton next={next} enabled={googleEnabled} />
-      <div className="mb-6 grid grid-cols-2 border border-neutral-300 text-sm">
+      {otpEnabled && <div className="mb-6 grid grid-cols-2 border border-neutral-300 text-sm">
         {(["email", "phone"] as const).map((t) => (
           <button key={t} onClick={() => setTab(t)} className={`py-2.5 font-semibold ${tab === t ? "bg-ink text-white" : ""}`}>
             {t === "email" ? "Email & Password" : "Mobile OTP"}
           </button>
         ))}
-      </div>
+      </div>}
 
-      {tab === "email" ? (
-        <form onSubmit={emailAction} className="space-y-4">
+      {tab === "email" || !otpEnabled ? (
+        <form method="post" onSubmit={emailAction} className="space-y-4">
           <input type="hidden" name="next" value={next} />
           <div><label className="label" htmlFor="email">Email</label><input id="email" name="email" type="email" autoComplete="email" required className="input" /></div>
           <div><label className="label" htmlFor="password">Password</label><input id="password" name="password" type="password" autoComplete="current-password" required className="input" /></div>
@@ -46,7 +46,7 @@ export function LoginForm({ next, googleEnabled, initialError }: { next: string;
           <button disabled={emailPending} className="btn-dark w-full">{emailPending ? "Signing in…" : "Sign in"}</button>
         </form>
       ) : !onOtpStep ? (
-        <form onSubmit={otpAction} className="space-y-4">
+        <form method="post" onSubmit={otpAction} className="space-y-4">
           <div>
             <label className="label" htmlFor="phone">Mobile number</label>
             <div className="flex"><span className="border border-r-0 border-neutral-300 bg-neutral-50 px-3 py-2.5 text-sm">+91</span><input id="phone" name="phone" inputMode="numeric" maxLength={10} required className="input" /></div>
@@ -55,7 +55,7 @@ export function LoginForm({ next, googleEnabled, initialError }: { next: string;
           <button disabled={otpPending} className="btn-dark w-full">{otpPending ? "Sending…" : "Send OTP"}</button>
         </form>
       ) : (
-        <form onSubmit={verifyAction} className="space-y-4">
+        <form method="post" onSubmit={verifyAction} className="space-y-4">
           <input type="hidden" name="phone" value={otpState.phone} />
           <input type="hidden" name="next" value={next} />
           {otpState.info && <p className="bg-green-50 p-3 text-sm text-green-800">{otpState.info}</p>}
@@ -78,7 +78,7 @@ export function RegisterForm({ next, googleEnabled }: { next: string; googleEnab
   return (
     <div>
       <GoogleButton next={next} enabled={googleEnabled} />
-      <form onSubmit={action} className="space-y-4">
+      <form method="post" onSubmit={action} className="space-y-4">
         <input type="hidden" name="next" value={next} />
         <div><label className="label" htmlFor="name">Full name</label><input id="name" name="name" required autoComplete="name" className="input" /></div>
         <div><label className="label" htmlFor="email">Email</label><input id="email" name="email" type="email" required autoComplete="email" className="input" /></div>

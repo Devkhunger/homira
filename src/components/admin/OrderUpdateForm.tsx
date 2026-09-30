@@ -8,7 +8,7 @@ type O = { id: string; status: string; paymentStatus: string; courier: string | 
 export default function OrderUpdateForm({ order }: { order: O }) {
   const [state, onSubmit, pending] = useFormAction<FormState>(updateOrder, {});
   return (
-    <form onSubmit={onSubmit} className="card space-y-4">
+    <form method="post" onSubmit={onSubmit} className="card space-y-4">
       <input type="hidden" name="id" value={order.id} />
       <h2 className="font-sans font-semibold">Update order</h2>
       <div>

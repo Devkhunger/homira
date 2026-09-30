@@ -52,7 +52,7 @@ export default function ProductForm({ categories, product }: { categories: Cat[]
   const parentName = (c: Cat) => categories.find((x) => x.id === c.parentId)?.name;
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-6 xl:grid-cols-[1fr_360px]">
+    <form method="post" onSubmit={onSubmit} className="grid gap-6 xl:grid-cols-[1fr_360px]">
       {product && <input type="hidden" name="id" value={product.id} />}
       <input type="hidden" name="keepImages" value={JSON.stringify(existing)} />
       <input ref={hiddenFiles} type="file" name="newImages" multiple className="hidden" tabIndex={-1} aria-hidden />
