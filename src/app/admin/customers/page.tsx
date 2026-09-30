@@ -5,7 +5,7 @@ import { Empty, PageHeader, Table } from "@/components/admin/ui";
 export default async function AdminCustomers({ searchParams }: { searchParams: Promise<{ q?: string }> }) {
   const q = ((await searchParams).q ?? "").trim();
   const customers = await db.user.findMany({
-    where: { role: "CUSTOMER", ...(q ? { OR: [{ name: { contains: q } }, { email: { contains: q } }, { phone: { contains: q } }] } : {}) },
+    where: { role: "CUSTOMER", ...(q ? { OR: [{ name: { contains: q, mode: "insensitive" } }, { email: { contains: q, mode: "insensitive" } }, { phone: { contains: q, mode: "insensitive" } }] } : {}) },
     include: { orders: { where: { status: { not: "CANCELLED" }, OR: [{ paymentMethod: "COD" }, { paymentStatus: "PAID" }] }, select: { total: true } } },
     orderBy: { createdAt: "desc" },
     take: 500,

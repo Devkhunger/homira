@@ -14,12 +14,12 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
           isActive: true,
           AND: words.map((w) => ({
             OR: [
-              { name: { contains: w } },
-              { description: { contains: w } },
-              { fabric: { contains: w } },
-              { weave: { contains: w } },
-              { colors: { contains: w } },
-              { category: { name: { contains: w } } },
+              { name: { contains: w, mode: "insensitive" } },
+              { description: { contains: w, mode: "insensitive" } },
+              { fabric: { contains: w, mode: "insensitive" } },
+              { weave: { contains: w, mode: "insensitive" } },
+              { colors: { contains: w, mode: "insensitive" } },
+              { category: { name: { contains: w, mode: "insensitive" } } },
             ],
           })),
         },

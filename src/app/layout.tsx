@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteUrl } from "@/lib/site";
 import { Cormorant_Garamond, Open_Sans } from "next/font/google";
 import "./globals.css";
 import { getSettings } from "@/lib/settings";
@@ -14,7 +15,7 @@ export const dynamic = "force-dynamic";
 export async function generateMetadata(): Promise<Metadata> {
   const s = await getSettings();
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+    metadataBase: new URL(siteUrl()),
     title: { default: `${s.brandName} | ${s.tagline}`, template: `%s | ${s.brandName}` },
     description: s.metaDescription,
     openGraph: { siteName: s.brandName, type: "website" },

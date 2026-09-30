@@ -9,6 +9,10 @@ const img = (n: number) => `/placeholders/fabric-${((n - 1) % 12) + 1}.svg`;
 async function ensureAdmin() {
   const email = (process.env.ADMIN_EMAIL || "owner@example.com").toLowerCase();
   const password = process.env.ADMIN_PASSWORD || "ChangeMe@123";
+  if (process.env.NODE_ENV === "production" && (!process.env.ADMIN_EMAIL || !process.env.ADMIN_PASSWORD || password.length < 8)) {
+    console.warn("⚠ ADMIN_EMAIL and ADMIN_PASSWORD (min 8 chars) must be set to create the owner account. Skipping.");
+    return;
+  }
   const name = process.env.ADMIN_NAME || "Store Owner";
   const existing = await db.user.findUnique({ where: { email } });
   if (existing) {
@@ -17,7 +21,8 @@ async function ensureAdmin() {
     return;
   }
   await db.user.create({ data: { email, name, role: "ADMIN", passwordHash: await bcrypt.hash(password, 12) } });
-  console.log(`✓ Owner account created: ${email} / ${password}  (change this password after first login!)`);
+  const shown = process.env.NODE_ENV === "production" ? "(password from ADMIN_PASSWORD)" : `/ ${password}`;
+  console.log(`✓ Owner account created: ${email} ${shown}  (change this password after first login!)`);
 }
 
 async function main() {

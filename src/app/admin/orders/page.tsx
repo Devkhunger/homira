@@ -13,7 +13,7 @@ export default async function AdminOrders({ searchParams }: { searchParams: Prom
       ...(sp.status ? { status: sp.status } : {}),
       // Hide abandoned online payments unless asked
       ...(showUnpaid ? {} : { OR: [{ paymentMethod: "COD" }, { paymentStatus: { not: "PENDING" } }] }),
-      ...(q ? { AND: [{ OR: [{ orderNumber: { contains: q.toUpperCase() } }, { shipName: { contains: q } }, { shipPhone: { contains: q } }] }] } : {}),
+      ...(q ? { AND: [{ OR: [{ orderNumber: { contains: q.toUpperCase(), mode: "insensitive" } }, { shipName: { contains: q, mode: "insensitive" } }, { shipPhone: { contains: q, mode: "insensitive" } }] }] } : {}),
     },
     include: { user: { select: { name: true } }, _count: { select: { items: true } } },
     orderBy: { createdAt: "desc" },

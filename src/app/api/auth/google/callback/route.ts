@@ -1,10 +1,11 @@
 import { cookies } from "next/headers";
+import { siteUrl } from "@/lib/site";
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { safeNext, startSession } from "@/lib/auth";
 
 export async function GET(req: Request) {
-  const site = process.env.NEXT_PUBLIC_SITE_URL || new URL(req.url).origin;
+  const site = siteUrl();
   const params = new URL(req.url).searchParams;
   const jar = await cookies();
   const fail = () => NextResponse.redirect(new URL("/account/login?error=google_failed", site));

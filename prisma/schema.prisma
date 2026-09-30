@@ -1,12 +1,12 @@
 // Database schema for the handloom store.
-// Uses plain String fields for statuses/lists so it works on both SQLite and PostgreSQL.
+// Uses plain String fields for statuses/lists to keep the schema simple.
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 

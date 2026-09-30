@@ -10,7 +10,7 @@ export default async function AdminProducts({ searchParams }: { searchParams: Pr
   const [products, cats] = await Promise.all([
     db.product.findMany({
       where: {
-        ...(q ? { OR: [{ name: { contains: q } }, { sku: { contains: q } }] } : {}),
+        ...(q ? { OR: [{ name: { contains: q, mode: "insensitive" } }, { sku: { contains: q, mode: "insensitive" } }] } : {}),
         ...(sp.cat ? { categoryId: sp.cat } : {}),
       },
       include: { images: { take: 1, orderBy: { sortOrder: "asc" } }, category: true },

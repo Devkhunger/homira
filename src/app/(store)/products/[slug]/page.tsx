@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { siteUrl } from "@/lib/site";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { db } from "@/lib/db";
@@ -111,7 +112,7 @@ export default async function ProductPage({ params }: Props) {
         wishlisted={Boolean(wish)}
         loggedIn={Boolean(user)}
         rating={{ avg, count: p.reviews.length }}
-        siteUrl={process.env.NEXT_PUBLIC_SITE_URL || ""}
+        siteUrl={siteUrl()}
       >
         <div className="mt-8 space-y-6 border-t pt-6 text-sm leading-relaxed">
           <details open className="group">

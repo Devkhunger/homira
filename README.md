@@ -2,7 +2,7 @@
 
 A full e-commerce website for a handloom business. The storefront layout follows chumbak.com, but the brand, colours, content and illustrations are your own. Owners run the store from a built-in dashboard, similar to a Meesho or Amazon seller panel.
 
-**Tech:** Next.js 15, Prisma (SQLite locally, PostgreSQL in production), Tailwind CSS, Razorpay.
+**Tech:** Next.js 15, Prisma (PostgreSQL), Tailwind CSS, Razorpay.
 
 ## Run it locally
 
@@ -39,12 +39,12 @@ To add another owner, go to **Admin → Settings → Owners**, or run `npm run c
 
 ## Going live
 
-1. **Database:** in `prisma/schema.prisma`, set `provider = "postgresql"`, then set `DATABASE_URL` to a PostgreSQL database (Neon, Supabase, Railway…) and run `npm run setup`.
+1. **Database:** PostgreSQL. Set `DATABASE_URL`. `npm start` creates the tables and your owner account automatically on every deploy (safe to repeat).
 2. **Payments:** put `RAZORPAY_KEY_ID` and `RAZORPAY_KEY_SECRET` from the Razorpay dashboard in `.env`. Until then, only COD is offered.
 3. **Google login:** create an OAuth client and add the redirect URI `https://yourdomain/api/auth/google/callback`.
 4. **SMS OTP:** add MSG91 keys. Without them, OTPs are printed in the server console (development only).
 5. **Hosting:** uploaded images are saved in `UPLOAD_DIR` on the server. Use a host with a persistent disk (a VPS, Railway volume or Render disk). Serverless hosts such as Vercel need cloud storage (S3/Cloudinary) plugged into `src/lib/uploads.ts`.
-6. Set `NEXT_PUBLIC_SITE_URL` to your domain and use a long random `AUTH_SECRET`.
+6. Set `SITE_URL` to your domain (optional on Railway) and use a long random `AUTH_SECRET`.
 
 ## Security notes
 
