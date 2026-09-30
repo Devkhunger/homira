@@ -29,8 +29,8 @@ export default async function HomePage() {
   ]);
 
   const usps = [
-    ["100% Handwoven", "Every piece is woven on a traditional handloom"],
-    ["Direct from Weavers", "Fair prices that reach the artisan"],
+    ["Made in Panipat", "Crafted in India's textile city"],
+    ["Direct from the Maker", "Factory-fresh quality at fair prices"],
     ["Secure Payments", "UPI, cards, netbanking & Cash on Delivery"],
     ["Pan-India Delivery", `Free shipping above ₹${s.freeShippingAbove}`],
   ];

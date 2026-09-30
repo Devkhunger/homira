@@ -10,9 +10,9 @@ function Fields({ b }: { b?: B }) {
   return (
     <>
       {b && <input type="hidden" name="id" value={b.id} />}
-      <div className="sm:col-span-2"><label className="label">Headline *</label><input name="title" required defaultValue={b?.title} className="input" placeholder="Festive Handloom Edit" /></div>
-      <div className="sm:col-span-2"><label className="label">Sub-text</label><input name="subtitle" defaultValue={b?.subtitle ?? ""} className="input" placeholder="Handwoven silk sarees starting ₹2,499" /></div>
-      <div><label className="label">Link (where the banner goes)</label><input name="link" defaultValue={b?.link ?? ""} className="input" placeholder="/collections/sarees" /></div>
+      <div className="sm:col-span-2"><label className="label">Headline *</label><input name="title" required defaultValue={b?.title} className="input" placeholder="Festive Home Edit" /></div>
+      <div className="sm:col-span-2"><label className="label">Sub-text</label><input name="subtitle" defaultValue={b?.subtitle ?? ""} className="input" placeholder="Cushion cover sets starting ₹499" /></div>
+      <div><label className="label">Link (where the banner goes)</label><input name="link" defaultValue={b?.link ?? ""} className="input" placeholder="/collections/sofa-covers" /></div>
       <div><label className="label">Button text</label><input name="cta" defaultValue={b?.cta ?? ""} className="input" placeholder="Shop now" /></div>
       <div><label className="label">Background colour</label><input name="bgColor" type="color" defaultValue={b?.bgColor ?? "#4f9e93"} className="h-10 w-20" /></div>
       <div><label className="label">Order</label><input name="sortOrder" type="number" defaultValue={b?.sortOrder ?? 0} className="input" /></div>

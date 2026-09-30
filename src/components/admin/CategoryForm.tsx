@@ -15,7 +15,7 @@ export default function CategoryForm({ category, parents }: { category?: C; pare
       {category && <input type="hidden" name="id" value={category.id} />}
       <section className="card space-y-4">
         <h2 className="font-sans font-semibold">Category</h2>
-        <div><label className="label">Name *</label><input name="name" required defaultValue={category?.name} className="input" placeholder="e.g. Sarees" /></div>
+        <div><label className="label">Name *</label><input name="name" required defaultValue={category?.name} className="input" placeholder="e.g. Sofa Covers" /></div>
         <div><label className="label">Description</label><textarea name="description" rows={3} defaultValue={category?.description ?? ""} className="input" /></div>
         <div>
           <label className="label">Parent category (for sub-menus)</label>
@@ -41,8 +41,8 @@ export default function CategoryForm({ category, parents }: { category?: C; pare
       <section className="card space-y-4">
         <h2 className="font-sans font-semibold">Collection banner</h2>
         <p className="text-xs text-neutral-500">Shown at the top of the collection page. Upload a wide image (e.g. 1920×400), or leave empty to use the text banner with “starting at ₹___” calculated automatically.</p>
-        <div><label className="label">Banner headline</label><input name="bannerTitle" defaultValue={category?.bannerTitle ?? ""} className="input" placeholder="e.g. Saree Stories" /></div>
-        <div><label className="label">Banner sub-heading</label><input name="bannerSubtitle" defaultValue={category?.bannerSubtitle ?? ""} className="input" placeholder="e.g. Handwoven cotton sarees" /></div>
+        <div><label className="label">Banner headline</label><input name="bannerTitle" defaultValue={category?.bannerTitle ?? ""} className="input" placeholder="e.g. Cushion Goals" /></div>
+        <div><label className="label">Banner sub-heading</label><input name="bannerSubtitle" defaultValue={category?.bannerSubtitle ?? ""} className="input" placeholder="e.g. Cushion cover sets" /></div>
         <div><label className="label">Banner colour</label><input name="bannerColor" type="color" defaultValue={category?.bannerColor ?? "#4f9e93"} className="h-10 w-20 cursor-pointer" /></div>
         <div>
           <label className="label">Banner image (optional)</label>

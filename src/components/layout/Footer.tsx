@@ -27,7 +27,7 @@ export default async function Footer() {
       title: "About Us",
       links: [
         ["Our Story", "/pages/our-story"],
-        ["Our Weavers", "/pages/our-story#weavers"],
+        ["Our Craft", "/pages/our-story#craft"],
         ["All Products", "/collections/all"],
         ["Bestsellers", "/collections/bestsellers"],
       ],

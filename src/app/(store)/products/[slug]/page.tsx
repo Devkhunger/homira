@@ -58,8 +58,8 @@ export default async function ProductPage({ params }: Props) {
   const myReview = user ? p.reviews.find((r) => r.userId === user.id) : undefined;
   const details = [
     ["Fabric", p.fabric],
-    ["Weave", p.weave],
-    ["Origin", p.origin],
+    ["Design", p.weave],
+    ["Made in", p.origin],
     ["Dimensions / Size", p.dimensions],
     ["Care", p.care],
     ["SKU", p.sku],
@@ -133,7 +133,7 @@ export default async function ProductPage({ params }: Props) {
             </details>
           )}
           <p className="border-t pt-6 text-xs text-neutral-500">
-            Being handwoven, slight irregularities in weave and colour are the hallmark of a genuine handloom product and not a defect.
+            Colours may look slightly different on different screens. As every piece is handcrafted, small variations are natural.
           </p>
         </div>
       </ProductDetail>

@@ -96,7 +96,7 @@ export default async function AdminSettings() {
           <div />
           <T s={s} k="story2Title" label="Section 2 heading" span />
           <Area s={s} k="story2Text" label="Section 2 text" rows={4} />
-          <Img s={s} k="story2Image" label="Section 2 photo (weavers)" />
+          <Img s={s} k="story2Image" label="Section 2 photo (workshop / craft)" />
         </Section>
 
         <Section title="Shipping, delivery & payments" hint={razorpayEnabled() ? "Online payments: Razorpay is connected ✓" : "Online payments: add your Razorpay keys to the server .env file to accept UPI/cards."}>

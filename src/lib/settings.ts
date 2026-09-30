@@ -23,11 +23,11 @@ export const DEFAULT_SETTINGS = {
   pinterest: "",
   storyTitle: "The Beginning",
   storyText:
-    "Homira was started in 2025 by Mr. Lalit Kumar and his daughter, Ms. Cheshta Khunger. A father and daughter, they share a love for handloom and a simple dream: to bring the warmth and craft of handwoven fabric into every home.\n\nWe work closely with artisan weavers to bring you honest fabrics and timeless designs, pieces that carry the stories of the hands that made them. Every purchase supports their craft and livelihood.\n\nHomira is a brand of Balaji Handicrafts, Panipat.\n\nHomira: elegance that feels like home.",
+    "Homira was started in 2025 by Mr. Lalit Kumar and his daughter, Ms. Cheshta Khunger. A father and daughter with a simple dream: to bring warmth, comfort and elegance into every home.\n\nFrom our workshop in Panipat, India's textile city, we make sofa covers, cushion covers, bolster covers, table covers and cushions, crafted with care from quality fabrics in designs that make a house feel like home.\n\nHomira is a brand of Balaji Handicrafts, Panipat.\n\nHomira: elegance that feels like home.",
   storyImage: "",
-  story2Title: "Our Weavers",
+  story2Title: "Our Craft",
   story2Text:
-    "Each saree, dupatta and fabric is woven on traditional handlooms. A single saree can take days to weave, and no two pieces are exactly alike — that is the beauty of handloom.",
+    "Every Homira piece is made in Panipat, a city known across the world for its home textiles. We choose each fabric carefully, cut and stitch every cover with attention to detail, and check it by hand before it reaches you, so it fits well, lasts long and looks beautiful in your home.",
   story2Image: "",
   freeShippingAbove: "999",
   shippingFee: "79",
@@ -37,11 +37,14 @@ export const DEFAULT_SETTINGS = {
   expressPincodes: "", // comma separated pincode prefixes for faster delivery, e.g. "110,400"
   expressDays: "2",
   gstin: "",
-  metaDescription: "Authentic handloom sarees, dupattas, fabrics and home decor woven by artisan weavers.",
+  metaDescription: "Homira by Balaji Handicrafts, Panipat: sofa covers, cushion covers, bolster covers, table covers and cushions. Elegance that feels like home.",
 
   // Page content. Simple format: "## Heading" lines become headings, blank lines separate paragraphs.
-  pageFaqs: `## How do I know the product is genuinely handloom?
-Every product is sourced directly from our weaver families. Small irregularities in the weave are the signature of a handmade piece.
+  pageFaqs: `## Where are Homira products made?
+Every product is made by us in Panipat, Haryana, India's textile city, under our parent company Balaji Handicrafts.
+
+## How do I choose the right size?
+Each product page lists the exact size. For cushion and bolster covers, pick the size of your cushion insert. For sofa covers, choose by the number of seats.
 
 ## How long does delivery take?
 Orders are usually delivered within 4-7 working days across India. You can check the expected date on any product page using your pincode.
@@ -49,8 +52,8 @@ Orders are usually delivered within 4-7 working days across India. You can check
 ## Do you offer Cash on Delivery?
 Yes, Cash on Delivery is available on most pincodes.
 
-## How do I wash handloom fabric?
-We recommend a gentle hand wash in cold water with mild detergent, or dry clean for silks. Dry in shade.
+## How do I wash the covers?
+Most covers can be gently hand washed or machine washed on a delicate cycle in cold water. Dry in shade. The exact care instructions are on each product page.
 
 ## Can I return or exchange a product?
 Yes, see our Shipping & Returns page for details.`,
@@ -76,7 +79,7 @@ You can update your account details at any time or ask us to delete your account
 By using this website you agree to these terms. Prices and availability may change without notice.
 
 ## Products
-As our products are handwoven, slight variations in colour, weave and size are natural and not defects. Colours may look slightly different on different screens.
+As our products are handcrafted, slight variations in colour and size are natural and not defects. Colours may look slightly different on different screens.
 
 ## Orders
 We reserve the right to cancel any order in case of pricing errors, stock issues or suspected fraud. Any amount paid will be refunded in full.`,

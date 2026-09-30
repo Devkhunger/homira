@@ -45,16 +45,16 @@ export default async function Header() {
               <HomiraMark className="h-10 w-auto" />
               <span className="flex flex-col leading-none">
                 <span className="font-serif text-[28px] font-semibold">{s.brandName}</span>
-                <span className="hidden text-[10.5px] italic tracking-wide xl:block">{s.tagline}</span>
+                <span className="hidden text-[10.5px] italic tracking-wide 2xl:block">{s.tagline}</span>
               </span>
             </span>
           )}
         </Link>
 
         <nav className="hidden flex-1 justify-center lg:flex" aria-label="Main">
-          <ul className="flex items-center gap-6 text-[13.5px]">
+          <ul className="flex items-center gap-4 whitespace-nowrap text-[13.5px] 2xl:gap-6">
             {nav.map((n) => (
-              <li key={n.href} className="group relative">
+              <li key={n.href} className={`group relative ${n.href === "/pages/our-story" ? "hidden 2xl:block" : ""}`}>
                 <Link
                   href={n.href}
                   className={`py-6 transition hover:text-brand ${n.highlight ? "font-serif text-[17px] text-sale" : "text-ink"}`}

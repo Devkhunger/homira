@@ -27,8 +27,8 @@ export function SearchBox() {
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          placeholder="Search sarees, dupattas…"
-          className="w-40 py-2 pr-3 text-sm outline-none xl:w-56"
+          placeholder="Search cushion covers, sofa covers…"
+          className="w-32 py-2 pr-3 text-sm outline-none xl:w-40 2xl:w-56"
           aria-label="Search products"
         />
       </form>

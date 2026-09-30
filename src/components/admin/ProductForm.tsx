@@ -13,7 +13,7 @@ type P = {
 };
 
 const BADGES = ["", "New Arrival", "Fast Moving", "Bestseller", "Limited Edition", "Handpicked"];
-const FABRICS = ["Cotton", "Silk", "Linen", "Khadi", "Tussar Silk", "Mulberry Silk", "Chanderi", "Maheshwari", "Wool", "Cotton Silk", "Jute"];
+const FABRICS = ["Cotton", "Jacquard", "Velvet", "Chenille", "Linen", "Canvas", "Polycotton", "Jute", "Silk", "Microfibre"];
 
 export default function ProductForm({ categories, product }: { categories: Cat[]; product?: P }) {
   const [state, onSubmit, pending] = useFormAction<FormState>(saveProduct, {});
@@ -60,8 +60,8 @@ export default function ProductForm({ categories, product }: { categories: Cat[]
       <div className="space-y-6">
         <section className="card space-y-4">
           <h2 className="font-sans font-semibold">Basic details</h2>
-          <div><label className="label">Product name *</label><input name="name" required defaultValue={product?.name} className="input" placeholder="e.g. Handwoven Ikat Cotton Saree – Indigo" /></div>
-          <div><label className="label">Description</label><textarea name="description" rows={6} defaultValue={product?.description} className="input" placeholder="Tell the story of the product: weave, motifs, how to style it…" /></div>
+          <div><label className="label">Product name *</label><input name="name" required defaultValue={product?.name} className="input" placeholder="e.g. Jacquard Cushion Cover 16x16 – Teal (Set of 5)" /></div>
+          <div><label className="label">Description</label><textarea name="description" rows={6} defaultValue={product?.description} className="input" placeholder="Describe the product: fabric, design, fit, what is included, how to use it…" /></div>
         </section>
 
         <section className="card">
@@ -103,18 +103,18 @@ export default function ProductForm({ categories, product }: { categories: Cat[]
         </section>
 
         <section className="card grid gap-4 sm:grid-cols-2">
-          <h2 className="font-sans font-semibold sm:col-span-2">Handloom details</h2>
+          <h2 className="font-sans font-semibold sm:col-span-2">Product details</h2>
           <div>
             <label className="label">Fabric</label>
             <input name="fabric" list="fabrics" defaultValue={product?.fabric ?? ""} className="input" placeholder="Cotton, Silk…" />
             <datalist id="fabrics">{FABRICS.map((f) => <option key={f} value={f} />)}</datalist>
           </div>
-          <div><label className="label">Weave / technique</label><input name="weave" defaultValue={product?.weave ?? ""} className="input" placeholder="Ikat, Jamdani, Banarasi…" /></div>
-          <div><label className="label">Origin / region</label><input name="origin" defaultValue={product?.origin ?? ""} className="input" placeholder="e.g. Pochampally, Telangana" /></div>
-          <div><label className="label">Dimensions / length</label><input name="dimensions" defaultValue={product?.dimensions ?? ""} className="input" placeholder="5.5 m saree + 0.8 m blouse" /></div>
+          <div><label className="label">Design / style</label><input name="weave" defaultValue={product?.weave ?? ""} className="input" placeholder="Jacquard, Printed, Embroidered, Solid…" /></div>
+          <div><label className="label">Made in</label><input name="origin" defaultValue={product?.origin ?? ""} className="input" placeholder="Panipat, Haryana" /></div>
+          <div><label className="label">Dimensions</label><input name="dimensions" defaultValue={product?.dimensions ?? ""} className="input" placeholder="16 x 16 inches, set of 5" /></div>
           <div className="sm:col-span-2"><label className="label">Wash care</label><input name="care" defaultValue={product?.care ?? ""} className="input" placeholder="Hand wash cold, dry in shade" /></div>
-          <div><label className="label">Colours (comma separated)</label><input name="colors" defaultValue={product?.colors} className="input" placeholder="Indigo, Maroon" /></div>
-          <div><label className="label">Sizes (comma separated, if any)</label><input name="sizes" defaultValue={product?.sizes} className="input" placeholder="S, M, L, XL" /></div>
+          <div><label className="label">Colours (comma separated)</label><input name="colors" defaultValue={product?.colors} className="input" placeholder="Teal, Beige" /></div>
+          <div><label className="label">Sizes (comma separated, if any)</label><input name="sizes" defaultValue={product?.sizes} className="input" placeholder="12x12, 16x16, 18x18 or 3 Seater, 5 Seater" /></div>
         </section>
       </div>
 

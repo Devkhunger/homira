@@ -54,7 +54,7 @@ export default async function ContentPage({ params }: Props) {
             </div>
           </div>
         </section>
-        <section id="weavers" className="relative overflow-hidden">
+        <section id="craft" className="relative overflow-hidden">
           <Paisley className="absolute -right-4 top-10 h-40 rotate-12" />
           <div className="container-x grid items-center gap-12 py-16 md:grid-cols-2">
             <div className="order-2 max-w-lg md:order-1 md:justify-self-end">
@@ -62,7 +62,7 @@ export default async function ContentPage({ params }: Props) {
               <p className="mt-6 whitespace-pre-line text-[15px] font-medium leading-relaxed">{s.story2Text}</p>
             </div>
             <div className="order-1 md:order-2">
-              <Arch src={s.story2Image} alt="Our weavers" fallback={<Flower className="h-1/2" />} />
+              <Arch src={s.story2Image} alt="Our craft" fallback={<Flower className="h-1/2" />} />
             </div>
           </div>
         </section>
