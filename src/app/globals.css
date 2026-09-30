@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand: 42 138 126;
+  --brand-dark: 32 104 95;
+  --accent: 200 150 46;
+  --soft: 79 158 147;
+  --cream: 248 245 234;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-ink font-sans antialiased;
+}
+
+h1, h2, h3, .font-display {
+  @apply font-serif;
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold uppercase tracking-wider transition disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-brand text-white hover:bg-brand-dark;
+  }
+  .btn-dark {
+    @apply btn bg-ink text-white hover:bg-black;
+  }
+  .btn-outline {
+    @apply btn border border-ink text-ink hover:bg-ink hover:text-white;
+  }
+  .input {
+    @apply w-full border border-neutral-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-brand focus:ring-1 focus:ring-brand;
+  }
+  .label {
+    @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-neutral-600;
+  }
+  .card {
+    @apply rounded-lg border border-neutral-200 bg-white p-5;
+  }
+  .link-underline {
+    @apply underline decoration-1 underline-offset-4 hover:text-brand;
+  }
+  .textured {
+    background-image:
+      radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 6px 6px, 9px 9px;
+    background-position: 0 0, 3px 3px;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+.animate-fade-in {
+  animation: fade-in 0.35s ease-out both;
+}
